@@ -84,15 +84,17 @@ public class MainActivity extends AppCompatActivity implements CounterHandler.Co
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                currentBPM = Integer.parseInt(charSequence.toString());
-                if(mIsBound){
-                    updateBPM(currentBPM);
-                }
-                Log.d(TAG, "onCreate: currentBPM is " + currentBPM);
+
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
+                currentBPM = Integer.parseInt(editable.toString());
+                if(mIsBound){
+                    mService.stopSound();
+                    updateBPM(currentBPM);
+                }
+                Log.d(TAG, "onCreate: currentBPM is " + currentBPM);
             }
         });
 

@@ -1,6 +1,8 @@
 package com.blackstart.mymetronome;
 
 import android.app.Service;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.media.AudioAttributes;
 import android.media.SoundPool;
@@ -16,7 +18,7 @@ import android.util.Log;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class MetronomeService extends Service{
+public class MetronomeService extends Service {
 
     private static final String TAG = "MetronomeService";
 
@@ -28,8 +30,7 @@ public class MetronomeService extends Service{
 
     private Handler handler;
     private SoundPool soundPool;
-    Timer timer;
-    TimerTask timerTask;
+    private Timer timer;
 
     @Override
     public void onCreate(){
@@ -70,21 +71,44 @@ public class MetronomeService extends Service{
 
     public void playSound(int bpm){
         Log.d(TAG, "playSound: started");
+        Log.d(TAG, "onLoadComplete: Current bpm is out: " + bpm);
 
-        soundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
+
+        /*soundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
             @Override
             public void onLoadComplete(SoundPool soundPool, int i, int i1) {
-                timer = new Timer();
+                if(timer == null){
+                    timer = new Timer();
+                }
+                Log.d(TAG, "onLoadComplete: Current bpm is: " + bpm);
                 timer.scheduleAtFixedRate(new TimerTask() {
                     @Override
                     public void run() {
-                        // Do your task
                         soundPool.play(tickSound, 1,1,1, 0, 1);
                     }
                 }, 0, (1000 * 60) / bpm);
             }
-        });
-    
+        });*/
+
+
+        timer = new Timer();
+        Log.d(TAG, "onLoadComplete: Current bpm is: " + bpm);
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                soundPool.play(tickSound, 1,1,1, 0, 1);
+            }
+        }, 0, (1000 * 60) / bpm);
+
+
+    }
+
+    public void stopSound(){
+        Log.d(TAG, "stopSound: started");
+        if (timer != null){
+            timer.cancel();
+            timer.purge();
+        }
     }
 
 
@@ -93,15 +117,22 @@ public class MetronomeService extends Service{
         super.onTaskRemoved(rootIntent);
         Log.d(TAG, "onTaskRemoved: called.");
         stopSelf();
+        if (timer != null && soundPool != null){
+            timer.cancel();
+            timer.purge();
+            soundPool.stop(tickSound);
+        }
         soundPool.stop(tickSound);
-        timer.cancel();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        soundPool.stop(tickSound);
-        timer.cancel();
+        if (timer != null && soundPool != null){
+            timer.cancel();
+            timer.purge();
+            soundPool.stop(tickSound);
+        }
         Log.d(TAG, "onDestroy: called.");
     }
 
