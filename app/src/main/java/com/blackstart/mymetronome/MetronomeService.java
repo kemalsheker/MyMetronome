@@ -73,26 +73,10 @@ public class MetronomeService extends Service {
         Log.d(TAG, "playSound: started");
         Log.d(TAG, "onLoadComplete: Current bpm is out: " + bpm);
 
-
-        /*soundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
-            @Override
-            public void onLoadComplete(SoundPool soundPool, int i, int i1) {
-                if(timer == null){
-                    timer = new Timer();
-                }
-                Log.d(TAG, "onLoadComplete: Current bpm is: " + bpm);
-                timer.scheduleAtFixedRate(new TimerTask() {
-                    @Override
-                    public void run() {
-                        soundPool.play(tickSound, 1,1,1, 0, 1);
-                    }
-                }, 0, (1000 * 60) / bpm);
-            }
-        });*/
-
-
         timer = new Timer();
         Log.d(TAG, "onLoadComplete: Current bpm is: " + bpm);
+
+
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {

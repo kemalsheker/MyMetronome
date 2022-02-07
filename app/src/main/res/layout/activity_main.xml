@@ -3,40 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:layout_gravity="center_vertical"
     tools:context=".MainActivity">
 
-    <SeekBar
-        android:id="@+id/metronome"
-        android:layout_width="300dp"
-        android:layout_height="98dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
-        android:clickable="false"
-        android:paddingStart="24dp"
-        android:paddingLeft="16dp"
-        android:paddingTop="16dp"
-        android:paddingEnd="24dp"
-        android:paddingRight="16dp"
-        android:paddingBottom="16dp"
-        android:progressDrawable="@drawable/seekbar_style"
-        android:thumb="@drawable/seekbar_thumb"
-        app:layout_constraintBottom_toTopOf="@+id/mockView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/bpmNumber"
         android:layout_width="133dp"
         android:layout_height="117dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
-        android:layout_marginBottom="72dp"
+        android:layout_marginEnd="32dp"
         android:gravity="center"
         android:text="90"
         android:textSize="60sp"
-        app:layout_constraintBottom_toTopOf="@+id/metronome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -79,30 +60,45 @@
         app:layout_constraintTop_toTopOf="@+id/bpmNumber"
         app:srcCompat="@android:drawable/ic_input_add" />
 
-    <androidx.constraintlayout.utils.widget.MockView
-        android:id="@+id/mockView2"
-        android:layout_width="363dp"
-        android:layout_height="376dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <androidx.appcompat.widget.AppCompatToggleButton
         android:id="@+id/startStopButton"
         android:layout_width="56dp"
         android:layout_height="53dp"
         android:layout_marginTop="32dp"
-        android:layout_marginBottom="8dp"
-        android:text=""
         android:background="@drawable/startstop_button_background"
         android:contextClickable="false"
-        app:layout_constraintBottom_toTopOf="@+id/metronome"
+        android:text=""
         app:layout_constraintEnd_toEndOf="@+id/minusButton"
         app:layout_constraintStart_toStartOf="@+id/minusButton"
         app:layout_constraintTop_toBottomOf="@+id/minusButton" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/startStopButton"
+        app:strokeColor="@color/black"
+        app:strokeWidth="1dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+            app:title="Rudiments"
+            app:titleTextColor="@color/white">
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity implements CounterHandler.Co
     private int maximumBPM = 240;
 
     TextView bpmNumber;
-    SeekBar metronome;
     AppCompatToggleButton startStopButton;
 
     private MetronomeService mService;
@@ -55,10 +54,7 @@ public class MainActivity extends AppCompatActivity implements CounterHandler.Co
         setContentView(R.layout.activity_main);
 
         bpmNumber = findViewById(R.id.bpmNumber);
-        metronome = findViewById(R.id.metronome);
         startStopButton = findViewById(R.id.startStopButton);
-        metronome.setClickable(false);
-        metronome.setEnabled(false);
         FloatingActionButton minusButton = (FloatingActionButton) findViewById(R.id.minusButton);
         FloatingActionButton plusButton = (FloatingActionButton) findViewById(R.id.plusButton);
 
