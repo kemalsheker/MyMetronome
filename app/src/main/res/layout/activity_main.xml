@@ -16,19 +16,19 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:gravity="center"
-        android:text="90"
+        android:text="@string/example_bpm"
         android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="90" />
+        tools:text="@string/example_bpm" />
 
     <TextView
         android:id="@+id/bpmTitle"
         android:layout_width="56dp"
         android:layout_height="29dp"
-        android:gravity="right"
-        android:text="BPM"
+        android:gravity="end"
+        android:text="@string/bpm_label"
         app:layout_constraintEnd_toEndOf="@+id/bpmNumber"
         app:layout_constraintTop_toBottomOf="@+id/bpmNumber" />
 
@@ -39,6 +39,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginEnd="16dp"
         android:clickable="true"
+        android:contentDescription="@string/minus_button"
         android:focusable="true"
         app:layout_constraintBottom_toBottomOf="@+id/bpmNumber"
         app:layout_constraintEnd_toStartOf="@+id/bpmNumber"
@@ -53,6 +54,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="24dp"
         android:clickable="true"
+        android:contentDescription="@string/plus_button"
         android:focusable="true"
         app:layout_constraintBottom_toBottomOf="@+id/bpmNumber"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,6 +75,7 @@
         app:layout_constraintTop_toBottomOf="@+id/minusButton" />
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/rudimentsCardView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
@@ -88,7 +91,7 @@
         app:strokeColor="@color/black"
         app:strokeWidth="1dp">
 
-        <androidx.appcompat.widget.Toolbar
+        <!--<androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/black"
@@ -97,7 +100,36 @@
             app:titleTextColor="@color/white">
 
 
-        </androidx.appcompat.widget.Toolbar>
+        </androidx.appcompat.widget.Toolbar> -->
+
+        <LinearLayout
+            android:id="@+id/rudimentLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="10">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/rudimentToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:title="Rudiments"
+                app:titleTextColor="@color/white"
+                android:layout_weight="1">
+
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/fragmentContainerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="9"/>
+        </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
 

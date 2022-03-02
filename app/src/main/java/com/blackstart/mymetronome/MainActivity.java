@@ -1,4 +1,4 @@
-package com.blackstart.mymetronome;
+    package com.blackstart.mymetronome;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -22,6 +22,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.AppCompatToggleButton;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.button.MaterialButtonToggleGroup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -52,6 +53,20 @@ public class MainActivity extends AppCompatActivity implements CounterHandler.Co
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (savedInstanceState == null) {
+            /*getSupportFragmentManager().beginTransaction()
+                    .setReorderingAllowed(true)
+                    .add(R.id.fragmentContainerView, RudimentListFragment.class, null)
+                    .commit();*/
+
+
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            RudimentListFragment fragment = new RudimentListFragment();
+            transaction.replace(R.id.fragmentContainerView, fragment);
+            transaction.commit();
+
+        }
 
         bpmNumber = findViewById(R.id.bpmNumber);
         startStopButton = findViewById(R.id.startStopButton);

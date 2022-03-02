@@ -2,4 +2,9 @@
     <string name="app_name">My\nMetronome</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="example_bpm">90</string>
+    <string name="bpm_label">BPM</string>
+    <string name="minus_button">minusButton</string>
+    <string name="plus_button">plusButton</string>
+    <string name="open_rudiment">open_rudiment_button</string>
 </resources>
