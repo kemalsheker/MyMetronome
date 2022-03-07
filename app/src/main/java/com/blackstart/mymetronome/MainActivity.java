@@ -4,6 +4,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.inputmethodservice.Keyboard;
 import android.media.AudioAttributes;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
@@ -22,11 +23,13 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.AppCompatToggleButton;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.button.MaterialButtonToggleGroup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.security.Key;
 import java.sql.Time;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -43,9 +46,12 @@ public class MainActivity extends AppCompatActivity implements CounterHandler.Co
 
     TextView bpmNumber;
     AppCompatToggleButton startStopButton;
+    Toolbar toolbar;
 
     private MetronomeService mService;
     private Boolean mIsBound = false;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,11 +61,6 @@ public class MainActivity extends AppCompatActivity implements CounterHandler.Co
         setContentView(R.layout.activity_main);
 
         if (savedInstanceState == null) {
-            /*getSupportFragmentManager().beginTransaction()
-                    .setReorderingAllowed(true)
-                    .add(R.id.fragmentContainerView, RudimentListFragment.class, null)
-                    .commit();*/
-
 
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             RudimentListFragment fragment = new RudimentListFragment();
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements CounterHandler.Co
         startStopButton = findViewById(R.id.startStopButton);
         FloatingActionButton minusButton = (FloatingActionButton) findViewById(R.id.minusButton);
         FloatingActionButton plusButton = (FloatingActionButton) findViewById(R.id.plusButton);
-
+        toolbar = findViewById(R.id.rudimentToolbar);
 
         new CounterHandler.Builder()
                 .incrementalView(plusButton)
@@ -172,6 +173,23 @@ public class MainActivity extends AppCompatActivity implements CounterHandler.Co
 
     private void updateBPM(int bpm){
         mService.playSound(bpm);
+    }
+
+    public void updateToolbar(String name){
+        toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24);
+        toolbar.setTitle(name);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                RudimentListFragment fragment = new RudimentListFragment();
+                transaction.replace(R.id.fragmentContainerView, fragment);
+                transaction.commit();
+                toolbar.setNavigationIcon(null);
+                toolbar.setTitle("Rudiments");
+            }
+        });
     }
 
     @Override

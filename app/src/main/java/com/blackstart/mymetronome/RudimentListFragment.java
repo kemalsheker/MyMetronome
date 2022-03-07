@@ -73,7 +73,23 @@ public class RudimentListFragment extends Fragment {
         mRudimentsList.put("Double Stroke Roll", R.drawable.doublestrokeroll);
         mRudimentsList.put("Triple Stroke Roll", R.drawable.triplestrokeroll);
         mRudimentsList.put("Five Stroke Roll", R.drawable.fivestrokeroll);
+        mRudimentsList.put("Seven Stroke Roll", R.drawable.sevenstrokeroll);
+        mRudimentsList.put("Nine Stroke Roll", R.drawable.ninestrokeroll);
+        mRudimentsList.put("Ten Stroke Roll", R.drawable.tenstrokeroll);
+        mRudimentsList.put("Eleven Stroke Roll", R.drawable.elevenstrokeroll);
+        mRudimentsList.put("Thirteen Stroke Roll", R.drawable.thirteenstrokeroll);
+        mRudimentsList.put("Fifteen Stroke Roll", R.drawable.fifteenstrokeroll);
+        mRudimentsList.put("Seventeen Stroke Roll", R.drawable.seventeenstrokeroll);
+        mRudimentsList.put("Single Paradiddle", R.drawable.singleparadiddle);
+        mRudimentsList.put("Double Paradiddle", R.drawable.doubleparadiddle);
+        mRudimentsList.put("Triple Paradiddle", R.drawable.tripleparadiddle);
+        mRudimentsList.put("Single Paradiddle-Diddle", R.drawable.singleparadiddlediddle);
+        mRudimentsList.put("Flam", R.drawable.flam);
+
+
+
 
     }
+
 
 }
