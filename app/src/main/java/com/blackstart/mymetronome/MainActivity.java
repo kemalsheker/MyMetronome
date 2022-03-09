@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements CounterHandler.Co
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         if (savedInstanceState == null) {
 
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

@@ -8,4 +8,6 @@
     <string name="plus_button">plusButton</string>
     <string name="open_rudiment">open_rudiment_button</string>
     <string name="note_image">note_image</string>
+    <string name="image_overlay">image_overlay</string>
+    <string name="cancel_button">cancel_button</string>
 </resources>
