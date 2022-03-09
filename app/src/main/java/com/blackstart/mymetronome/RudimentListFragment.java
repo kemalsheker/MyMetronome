@@ -68,11 +68,12 @@ public class RudimentListFragment extends Fragment {
 
         mRudimentsList.put("Single Stroke Roll", R.drawable.singlestrokeroll);
         mRudimentsList.put("Single Stroke Four", R.drawable.singlestrokefour);
-        /*mRudimentsList.put("Single Stroke Seven", R.drawable.singlestrokeseven);
+        mRudimentsList.put("Single Stroke Seven", R.drawable.singlestrokeseven);
         mRudimentsList.put("Multiple Bounce Roll", R.drawable.multiplebounceroll);
         mRudimentsList.put("Double Stroke Roll", R.drawable.doublestrokeroll);
         mRudimentsList.put("Triple Stroke Roll", R.drawable.triplestrokeroll);
         mRudimentsList.put("Five Stroke Roll", R.drawable.fivestrokeroll);
+        mRudimentsList.put("Six Stroke Roll", R.drawable.sixstrokeroll);
         mRudimentsList.put("Seven Stroke Roll", R.drawable.sevenstrokeroll);
         mRudimentsList.put("Nine Stroke Roll", R.drawable.ninestrokeroll);
         mRudimentsList.put("Ten Stroke Roll", R.drawable.tenstrokeroll);
@@ -84,9 +85,27 @@ public class RudimentListFragment extends Fragment {
         mRudimentsList.put("Double Paradiddle", R.drawable.doubleparadiddle);
         mRudimentsList.put("Triple Paradiddle", R.drawable.tripleparadiddle);
         mRudimentsList.put("Single Paradiddle-Diddle", R.drawable.singleparadiddlediddle);
-        mRudimentsList.put("Flam", R.drawable.flam);*/
-
-
+        mRudimentsList.put("Flam", R.drawable.flam);
+        mRudimentsList.put("Flam Accent", R.drawable.flamaccent);
+        mRudimentsList.put("Flam Tap", R.drawable.flamtap);
+        mRudimentsList.put("Flamacue", R.drawable.flamacue);
+        mRudimentsList.put("Flam Paradiddle", R.drawable.flamparadiddle);
+        mRudimentsList.put("Pataflafla", R.drawable.pataflafla);
+        mRudimentsList.put("Single Flammed Mill", R.drawable.singleflammedmill);
+        mRudimentsList.put("Flam Paradiddle-Diddle", R.drawable.flamparadiddlediddle);
+        mRudimentsList.put("Swiss Army Triplet", R.drawable.swissarmytriplet);
+        mRudimentsList.put("Inverted Flam Tap", R.drawable.invertedflamtap);
+        mRudimentsList.put("Flam Drag", R.drawable.flamdrag);
+        mRudimentsList.put("Drag Ruff", R.drawable.dragruff);
+        mRudimentsList.put("Single Drag Tap", R.drawable.dragruff);
+        mRudimentsList.put("Double Drag Tap", R.drawable.doubledragtap);
+        mRudimentsList.put("Lesson 25", R.drawable.lesson25);
+        mRudimentsList.put("Single Dragadiddle", R.drawable.singledragadiddle);
+        mRudimentsList.put("Dragadiddle 1", R.drawable.dragadiddleone);
+        mRudimentsList.put("Dragadiddle 2", R.drawable.dragadiddletwo);
+        mRudimentsList.put("Single Ratamacue", R.drawable.singleratamacue);
+        mRudimentsList.put("Double Ratamacue", R.drawable.doubleratamacue);
+        mRudimentsList.put("Triple Ratamacue", R.drawable.tripleratamacue);
 
 
     }
