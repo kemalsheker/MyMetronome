@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements CounterHandler.Co
         Log.d(TAG, "onCreate: starts");
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState);
+        setTheme(R.style.Theme_MyMetronome);
         setContentView(R.layout.activity_main);
 
 

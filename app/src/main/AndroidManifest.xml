@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/iconsdrum"
         android:supportsRtl="true"
 
-        android:theme="@style/Theme.MyMetronome">
+        android:theme="@style/splashScreenTheme">
         <activity android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
