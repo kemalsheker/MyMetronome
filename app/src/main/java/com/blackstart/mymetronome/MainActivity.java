@@ -1,23 +1,16 @@
-    package com.blackstart.mymetronome;
+package com.blackstart.mymetronome;
 
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.inputmethodservice.Keyboard;
-import android.media.AudioAttributes;
-import android.media.MediaPlayer;
-import android.media.SoundPool;
 import android.os.Bundle;
-import android.os.HandlerThread;
 import android.os.IBinder;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
-import android.widget.ImageButton;
-import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,13 +19,7 @@ import androidx.appcompat.widget.AppCompatToggleButton;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.google.android.material.button.MaterialButtonToggleGroup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.security.Key;
-import java.sql.Time;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity implements CounterHandler.CounterListener {
     private static final String TAG = "MainActivity";
@@ -50,7 +37,6 @@ public class MainActivity extends AppCompatActivity implements CounterHandler.Co
 
     private MetronomeService mService;
     private Boolean mIsBound = false;
-
 
 
     @Override
@@ -104,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements CounterHandler.Co
             @Override
             public void afterTextChanged(Editable editable) {
                 currentBPM = Integer.parseInt(editable.toString());
-                if(mIsBound){
+                if (mIsBound) {
                     mService.stopSound();
                     updateBPM(currentBPM);
                 }
@@ -115,16 +101,16 @@ public class MainActivity extends AppCompatActivity implements CounterHandler.Co
         startStopButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if(isChecked){
+                if (isChecked) {
                     Log.d(TAG, "onCheckedChanged: Toggle is enabled");
-                    if(!mIsBound){
+                    if (!mIsBound) {
                         startMetronomeService();
-                    }else{
+                    } else {
                         updateBPM(currentBPM);
                     }
-                }else{
+                } else {
                     Log.d(TAG, "onCheckedChanged: Toggle is disabled");
-                    if(mIsBound){
+                    if (mIsBound) {
                         stopMetronomeService();
                     }
                 }
@@ -145,6 +131,7 @@ public class MainActivity extends AppCompatActivity implements CounterHandler.Co
 
             updateBPM(currentBPM);
         }
+
         @Override
         public void onServiceDisconnected(ComponentName arg0) {
             Log.d(TAG, "ServiceConnection: disconnected from service.");
@@ -153,31 +140,31 @@ public class MainActivity extends AppCompatActivity implements CounterHandler.Co
     };
 
 
-    private void startMetronomeService(){
+    private void startMetronomeService() {
         Intent serviceIntent = new Intent(this, MetronomeService.class);
         startService(serviceIntent);
 
         bindService();
     }
 
-    private void bindService(){
-        Intent serviceBindIntent =  new Intent(this, MetronomeService.class);
+    private void bindService() {
+        Intent serviceBindIntent = new Intent(this, MetronomeService.class);
         bindService(serviceBindIntent, serviceConnection, Context.BIND_AUTO_CREATE);
     }
 
-    private void stopMetronomeService(){
-        if(mIsBound){
+    private void stopMetronomeService() {
+        if (mIsBound) {
             unbindService(serviceConnection);
             this.stopService(new Intent(this, MetronomeService.class));
             mIsBound = false;
         }
     }
 
-    private void updateBPM(int bpm){
+    private void updateBPM(int bpm) {
         mService.playSound(bpm);
     }
 
-    public void updateToolbar(String name){
+    public void updateToolbar(String name) {
         toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24);
         toolbar.setTitle(name);
 

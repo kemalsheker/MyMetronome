@@ -1,23 +1,17 @@
 package com.blackstart.mymetronome;
 
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.Map;
-import static java.util.Map.entry;
 
 public class RudimentListFragment extends Fragment {
 
@@ -45,7 +39,6 @@ public class RudimentListFragment extends Fragment {
     }
 
 
-
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.rudiments_list, container, false);
         rootView.setTag(TAG);
@@ -64,7 +57,7 @@ public class RudimentListFragment extends Fragment {
 
     private void initDataset() {
 
-        mRudimentsList=new LinkedHashMap<String, Integer>();
+        mRudimentsList = new LinkedHashMap<String, Integer>();
 
         mRudimentsList.put("Single Stroke Roll", R.drawable.singlestrokeroll);
         mRudimentsList.put("Single Stroke Four", R.drawable.singlestrokefour);

@@ -27,7 +27,7 @@ public class MetronomeService extends Service {
     private Timer timer;
 
     @Override
-    public void onCreate(){
+    public void onCreate() {
         AudioAttributes audioAttributes = new AudioAttributes.Builder()
                 .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
                 .setUsage(AudioAttributes.USAGE_MEDIA)
@@ -63,7 +63,7 @@ public class MetronomeService extends Service {
     }
 
 
-    public void playSound(int bpm){
+    public void playSound(int bpm) {
         Log.d(TAG, "playSound: started");
         Log.d(TAG, "onLoadComplete: Current bpm is out: " + bpm);
 
@@ -74,16 +74,16 @@ public class MetronomeService extends Service {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                soundPool.play(tickSound, 1,1,1, 0, 1);
+                soundPool.play(tickSound, 1, 1, 1, 0, 1);
             }
         }, 0, (1000 * 60) / bpm);
 
 
     }
 
-    public void stopSound(){
+    public void stopSound() {
         Log.d(TAG, "stopSound: started");
-        if (timer != null){
+        if (timer != null) {
             timer.cancel();
             timer.purge();
         }
@@ -95,7 +95,7 @@ public class MetronomeService extends Service {
         super.onTaskRemoved(rootIntent);
         Log.d(TAG, "onTaskRemoved: called.");
         stopSelf();
-        if (timer != null && soundPool != null){
+        if (timer != null && soundPool != null) {
             timer.cancel();
             timer.purge();
             soundPool.stop(tickSound);
@@ -106,7 +106,7 @@ public class MetronomeService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (timer != null && soundPool != null){
+        if (timer != null && soundPool != null) {
             timer.cancel();
             timer.purge();
             soundPool.stop(tickSound);

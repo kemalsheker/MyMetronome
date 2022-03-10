@@ -2,7 +2,6 @@ package com.blackstart.mymetronome;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.os.Message;
 import android.view.MotionEvent;
 import android.view.View;
 

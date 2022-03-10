@@ -1,7 +1,6 @@
 package com.blackstart.mymetronome;
 
 
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,19 +9,13 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
-import org.w3c.dom.Text;
 
 import java.util.LinkedHashMap;
-import java.util.Map;
 
 public class RudimentListAdapter extends RecyclerView.Adapter<RudimentListAdapter.ViewHolder> {
     private static final String TAG = "RudimentListAdapter";
@@ -65,7 +58,7 @@ public class RudimentListAdapter extends RecyclerView.Adapter<RudimentListAdapte
             Log.d(TAG, "onClick: starts, Clicking element: " + getAdapterPosition());
 
             Bundle bundle = new Bundle();
-            String key =  mDataSet.keySet().toArray()[getAdapterPosition()].toString();
+            String key = mDataSet.keySet().toArray()[getAdapterPosition()].toString();
             bundle.putString("key", key);
             bundle.putInt("value", mDataSet.get(key));
 
@@ -75,7 +68,6 @@ public class RudimentListAdapter extends RecyclerView.Adapter<RudimentListAdapte
             activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, myFragment).addToBackStack(null).commit();
 
         }
-
 
 
     }
@@ -95,7 +87,7 @@ public class RudimentListAdapter extends RecyclerView.Adapter<RudimentListAdapte
     public RudimentListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.rudiment_item, parent, false);
-        
+
 
         return new ViewHolder(v);
     }
@@ -115,7 +107,6 @@ public class RudimentListAdapter extends RecyclerView.Adapter<RudimentListAdapte
     public int getItemCount() {
         return mDataSet.size();
     }
-
 
 
 }
