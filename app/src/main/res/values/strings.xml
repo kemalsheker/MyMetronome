@@ -10,4 +10,6 @@
     <string name="note_image">note_image</string>
     <string name="image_overlay">image_overlay</string>
     <string name="cancel_button">cancel_button</string>
+    <string name="off_toggle">Off</string>
+    <string name="onToggle">On</string>
 </resources>

@@ -115,7 +115,8 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/startstop_button_background"
         android:contextClickable="false"
-        android:text=""
+        android:textOff="@string/off_toggle"
+        android:textOn="@string/onToggle"
         app:layout_constraintEnd_toEndOf="@+id/minusButton"
         app:layout_constraintStart_toStartOf="@+id/minusButton"
         app:layout_constraintTop_toBottomOf="@+id/minusButton" />
