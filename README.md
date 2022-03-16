@@ -2,7 +2,8 @@
 
  ## This is a basic metronome app with 40 drum rudiments.
  
- I create metronome as a service using SoundPool. Fragments used for listing rudiments and showing them. ' com.github.chrisbanes.photoview.PhotoView ' used for displaying notes. 
+ I create metronome as a service using SoundPool. Fragments used for listing rudiments and showing them. ' com.github.chrisbanes.photoview.PhotoView ' used for displaying notes.
+ You can download the app from play store: https://play.google.com/store/apps/details?id=com.blackstart.mymetronome
  
  
  
